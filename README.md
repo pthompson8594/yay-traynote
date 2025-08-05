@@ -139,13 +139,4 @@ EOF
 
 Replace `/path/to/yay-traynote.py` with the actual path to the script.
 
-## Differences from Full YAY Auto-Updater
 
-This is a simplified version that:
-- **Only shows icon notifications** (no package management GUI)
-- **No automatic updating** (visual alerts only)
-- **Minimal sudo usage** (only for package database sync)
-- **Smaller resource footprint**
-- **Simpler configuration**
-
-For full package management and auto-updating features, use the complete `yay-updater.py` application.
