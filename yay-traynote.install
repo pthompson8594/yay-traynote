@@ -1,0 +1,48 @@
+post_install() {
+    echo ""
+    echo "==> YAY Update Notifier has been installed!"
+    echo ""
+    echo "To set up passwordless sudo for package database syncing:"
+    echo "  /usr/share/yay-traynote/setup-sudo.sh"
+    echo ""
+    echo "To enable and start the service:"
+    echo "  systemctl --user enable yay-traynote.service"
+    echo "  systemctl --user start yay-traynote.service"
+    echo ""
+    echo "The service will automatically start with your desktop session."
+    echo "Check your system tray for the update notifier icon."
+    echo ""
+    echo "Useful commands:"
+    echo "  Start:   systemctl --user start yay-traynote.service"
+    echo "  Stop:    systemctl --user stop yay-traynote.service"
+    echo "  Status:  systemctl --user status yay-traynote.service"
+    echo "  Logs:    journalctl --user -u yay-traynote.service -f"
+    echo ""
+}
+
+post_upgrade() {
+    echo ""
+    echo "==> YAY Update Notifier has been upgraded!"
+    echo ""
+    echo "Restart the service to use the new version:"
+    echo "  systemctl --user restart yay-traynote.service"
+    echo ""
+}
+
+pre_remove() {
+    echo "Stopping yay-traynote service..."
+    systemctl --user stop yay-traynote.service 2>/dev/null || true
+    systemctl --user disable yay-traynote.service 2>/dev/null || true
+}
+
+post_remove() {
+    echo ""
+    echo "==> YAY Update Notifier has been removed."
+    echo ""
+    echo "To remove configuration files:"
+    echo "  rm -rf ~/.config/yay-traynote"
+    echo ""
+    echo "To remove passwordless sudo rule:"
+    echo "  sudo rm -f /etc/sudoers.d/yay-traynote"
+    echo ""
+}

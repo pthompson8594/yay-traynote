@@ -1,0 +1,16 @@
+[Unit]
+Description=YAY Update Notifier
+After=graphical-session.target
+Wants=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/yay-traynote
+Restart=on-failure
+RestartSec=5
+
+# Environment for GUI applications (Wayland/X11 compatible)
+Environment=QT_QPA_PLATFORM=wayland;xcb
+
+[Install]
+WantedBy=default.target
