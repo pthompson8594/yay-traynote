@@ -1,6 +1,6 @@
 # YAY Update Notifier
 
-A lightweight system tray application that monitors for Arch Linux package updates using `yay` and shows desktop notifications when updates are available.
+A lightweight system tray application that monitors for Arch Linux package updates using `yay` and shows desktop non intrusive notifications when updates are available.
 
 ## Features
 
@@ -116,27 +116,5 @@ journalctl --user -u yay-traynote.service -f
 - `yay` (AUR helper)
 - System tray support
 - Terminal emulator (gnome-terminal, konsole, or xterm)
-
-## Autostart
-
-To run automatically at login, create a desktop entry:
-
-```bash
-# Create autostart directory if it doesn't exist
-mkdir -p ~/.config/autostart
-
-# Create desktop entry
-cat > ~/.config/autostart/yay-traynote.desktop << EOF
-[Desktop Entry]
-Type=Application
-Name=YAY Update Notifier
-Exec=/path/to/yay-traynote.py
-Hidden=false
-NoDisplay=false
-X-GNOME-Autostart-enabled=true
-EOF
-```
-
-Replace `/path/to/yay-traynote.py` with the actual path to the script.
 
 
